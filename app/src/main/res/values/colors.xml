@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="nectarine">#D7897F</color>
+    <color name="pêche">#EBB975</color>
+    <color name="menthe">#96C7B3</color>
+    <color name="lagune">#6398A9</color>
+    <color name="lagun2">#4A4F9E</color>
+    <color name="Burgundy">#6C0820</color>
+    <color name="Cherry">#F2AEBC</color>
+    <color name="flower">#6777B6</color>
+    <color name="background">#000635</color>
+
+</resources>

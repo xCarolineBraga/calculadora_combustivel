@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultadoActivity"
+    android:background="@color/lagune">
+
+
+    <TextView
+        android:id="@+id/tv_resultadoDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Litros necessários:"
+        android:textColor="@color/background"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintRight_toLeftOf="@id/tv_LitrosNecessarios"
+        app:layout_constraintTop_toBottomOf="@id/bg_title"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_LitrosNecessarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/background"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text=" 34"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_resultadoDescricao"
+        app:layout_constraintTop_toBottomOf="@id/bg_title"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_resumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Resumo das informações digitadas"
+        android:textStyle="italic|bold"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_resultadoDescricao" />
+    
+    <View
+        android:id="@+id/view_divisao"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_resumo"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_DistanciaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:text="Distância:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_divisao"
+       app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_Distancia"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+    <TextView
+        android:id="@+id/tv_Distancia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@id/tv_DistanciaTitle"
+        app:layout_constraintTop_toBottomOf="@id/view_divisao"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="600"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_kmPorLitro_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:text="Km por Litro:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_DistanciaTitle"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintRight_toLeftOf="@id/tv_km_por_litro"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_km_por_litro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_kmPorLitro_title"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_Distancia"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="80"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_precoCombustivel_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:text="Preço Combustível"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_precoCombustível"
+        app:layout_constraintTop_toBottomOf="@id/tv_kmPorLitro_title"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/tv_precoCombustível"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_precoCombustivel_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_km_por_litro"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="8.5"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:id="@+id/bg_title"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_rounded2"
+        android:gravity="center"
+
+        android:padding="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custo total: R$"
+                android:textColor="@color/lagune"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_ResultadoCusto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lagune"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text=" 200,00" />
+        </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_Recalcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/background"
+        android:text="Recalcular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
