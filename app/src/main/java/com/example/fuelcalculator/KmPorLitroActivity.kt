@@ -26,6 +26,7 @@ class KmPorLitroActivity : AppCompatActivity() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_kmPorLitro)
         toolbar.setNavigationOnClickListener {
             finish()
+            
         }
 
         val distancia = intent.getIntExtra(FuelConstants.key.DISTANCIA_ID, 0)
