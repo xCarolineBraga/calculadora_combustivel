@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.IntentCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -26,8 +28,11 @@ class PrecoCombustivelActivity : AppCompatActivity() {
             finish()
         }
 
-        val distancia = intent.getIntExtra(FuelConstants.key.DISTANCIA_ID, 0)
-        val kmPorLitro = intent.getIntExtra(FuelConstants.key.KM_POR_LITRO_ID, 0)
+        val viagem = IntentCompat.getParcelableExtra(intent, FuelConstants.key.PASSWORD,
+            FichaViagem::class.java)
+
+//        val distancia = intent.getIntExtra(FuelConstants.key.PASSWORD, 0)
+//        val kmPorLitro = intent.getIntExtra(FuelConstants.key.KM_POR_LITRO_ID, 0)
 
         val edtprecoCombustivel = findViewById<EditText>(R.id.edt_precoII)
 
@@ -35,14 +40,22 @@ class PrecoCombustivelActivity : AppCompatActivity() {
 
         btnPrecoCombustivel.setOnClickListener {
 
-            val precoCombustivelValor = edtprecoCombustivel.text.toString().toDouble()
-            val intent = Intent(this, ResultadoActivity::class.java)
+            val preco = edtprecoCombustivel.text.toString()
 
-            intent.putExtra(FuelConstants.key.DISTANCIA_ID, distancia)
-            intent.putExtra(FuelConstants.key.KM_POR_LITRO_ID, kmPorLitro)
-            intent.putExtra(FuelConstants.key.PRECO_COMBUSTIVEL_ID, precoCombustivelValor)
+            if (preco.isEmpty()){
+                Toast.makeText(this,R.string.mandatory_error, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            startActivity(intent)
+            viagem?.let {
+                it.preco = edtprecoCombustivel.text.toString().toDouble()
+
+                val intent = Intent(this, ResultadoActivity::class.java)
+                intent.putExtra(FuelConstants.key.PASSWORD,it)
+                startActivity(intent)
+            }
+
+
 
         }
 

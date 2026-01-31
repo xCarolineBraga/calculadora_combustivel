@@ -31,16 +31,17 @@ class DistanciaActivity : AppCompatActivity() {
             var edtDistanciaValor = edtDistancia.text.toString()
 
             if (edtDistanciaValor.isEmpty()){
-                Toast.makeText(this,"Digite um valor", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,R.string.mandatory_error, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             var distanciaProcessada = edtDistanciaValor.toInt()
 
+            val viagem = FichaViagem(distancia = distanciaProcessada)
 
 
             val intent = Intent(this, KmPorLitroActivity::class.java)
-            intent.putExtra(FuelConstants.key.DISTANCIA_ID,distanciaProcessada)
+            intent.putExtra(FuelConstants.key.PASSWORD,viagem)
             startActivity(intent)
 
         }

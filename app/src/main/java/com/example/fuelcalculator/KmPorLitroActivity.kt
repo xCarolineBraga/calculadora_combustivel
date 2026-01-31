@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.IntentCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
@@ -22,27 +24,43 @@ class KmPorLitroActivity : AppCompatActivity() {
             insets
 
         }
-
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_kmPorLitro)
         toolbar.setNavigationOnClickListener {
             finish()
-            
         }
 
-        val distancia = intent.getIntExtra(FuelConstants.key.DISTANCIA_ID, 0)
+        val viagem = IntentCompat.getParcelableExtra(intent, FuelConstants.key.PASSWORD,
+            FichaViagem::class.java)
+
+        //val distancia = intent.getIntExtra(FuelConstants.key.PASSWORD, 0)
 
         val edtKmLitro = findViewById<EditText>(R.id.edt_kmPorLitro)
         val btnProximoII = findViewById<Button>(R.id.btn_KmPorLitroProximo)
 
         btnProximoII.setOnClickListener {
-            val kmPorLitroValor = edtKmLitro.text.toString().toInt()
+            val kmPorLitroValor = edtKmLitro.text.toString()
 
-            val intent = Intent(this, PrecoCombustivelActivity::class.java)
+            if (kmPorLitroValor.isEmpty()){
+                Toast.makeText(this,R.string.mandatory_error, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-            intent.putExtra(FuelConstants.key.DISTANCIA_ID, distancia)
-            intent.putExtra(FuelConstants.key.KM_POR_LITRO_ID, kmPorLitroValor)
+            viagem?.let {
 
-            startActivity(intent)
+                it.consumo = edtKmLitro.text.toString().toInt()
+
+                val intent = Intent(this, PrecoCombustivelActivity::class.java)
+                intent.putExtra(FuelConstants.key.PASSWORD,it)
+                startActivity(intent)
+            }
+//            val kmPorLitroValor = edtKmLitro.text.toString().toInt()
+//
+//            val intent = Intent(this, PrecoCombustivelActivity::class.java)
+//
+//            intent.putExtra(FuelConstants.key.PASSWORD, distancia)
+//            intent.putExtra(FuelConstants.key.KM_POR_LITRO_ID, kmPorLitroValor)
+//
+//            startActivity(intent)
         }
     }
 }
